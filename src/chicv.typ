@@ -8,9 +8,9 @@
 )
 
 #let to-string(input) = {
-  if type(input) == "string" {
+  if type(input) == str {
     input
-  } else if type(input) == "content" {
+  } else if type(input) == content {
     if input.has("text") {
       input.text
     } else if input.has("children") {
@@ -23,6 +23,8 @@
       // fallback, I don't know how to handle this input
       input
     }
+  } else {
+    str(input)
   }
 }
 
