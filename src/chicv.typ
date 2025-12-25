@@ -66,7 +66,7 @@
 }
 
 #let dates(
-  from: "", to: ""
+  from: "", to: "", date: ""
 ) = {
   let from = to-string(from);
   let to = to-string(to);
@@ -74,6 +74,8 @@
     from + " " + sym.dash.em + " " + to
   } else if from != "" {
     from + " " + sym.dash.em + " Now"
+  } else if date != "" {
+    date
   } else {
     ""
   }
@@ -167,6 +169,13 @@
       #content
     ]
   ))
+}
+
+#let shortentry(name: "", date: "") = {
+  name
+  h(1fr)
+  date
+  linebreak()
 }
 
 #let chicv(
