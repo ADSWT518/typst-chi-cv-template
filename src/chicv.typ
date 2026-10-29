@@ -78,7 +78,7 @@
   if from != "" and to != "" {
     from + " " + sym.dash.em + " " + to
   } else if from != "" {
-    from + " " + sym.dash.em + " Now"
+    from + " " + sym.dash.em + " Present"
   } else if date != "" {
     date
   } else {
