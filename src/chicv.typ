@@ -52,10 +52,15 @@
 ) = {
   let uri = to-string(uri);
   let icon = to-string(icon);
+  let glyph = context {
+    // Use the surrounding font's cap height so icon metrics do not widen lines.
+    let cap-height = measure(std.text(top-edge: "cap-height", bottom-edge: "baseline", [H])).height
+    box(fa-icon(icon, solid: solid, top-edge: cap-height, bottom-edge: "baseline"))
+  }
   if text != "" {
-    [#box(fa-icon(icon, solid: solid), inset: (right: 2pt))#link(uri)[#text]]
+    [#box(glyph, inset: (right: 2pt))#link(uri)[#text]]
   } else {
-    link(uri)[#fa-icon(icon, solid: solid)]
+    link(uri)[#glyph]
   }
 }
 
